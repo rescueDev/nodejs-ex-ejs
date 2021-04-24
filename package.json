@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-ex-4",
+  "version": "1.0.0",
+  "description": "nodejs exercise 4",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "salvatore borgia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-handlebars": "*",
+    "nodemon": "*",
+    "path": "*",
+    "pug": "*"
+  }
+}
