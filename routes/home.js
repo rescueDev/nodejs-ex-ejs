@@ -2,17 +2,13 @@ const express = require("express");
 
 const router = express.Router();
 
+const homeController = require("../controllers/adduser");
+
 const users = [];
 
-router.get("/", (req, res, next) => {
-  res.render("home", { titlePage: "Home", linkPath: "/" });
-});
+router.get("/", homeController.getHome);
 
-router.post("/", (req, res, next) => {
-  users.push({ name: req.body.name });
-  console.log("push", users);
-  res.redirect("/users");
-});
+router.post("/", homeController.postUser);
 
 exports.routes = router;
 exports.users = users;
