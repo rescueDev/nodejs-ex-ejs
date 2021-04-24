@@ -1,4 +1,4 @@
-# Simple project using nodejs, express, ejs and routes
+# Simple project using NodeJs, Express, EJS and routes
 
 ## Add user submitting a form in home page, render users list in /users page.
 
