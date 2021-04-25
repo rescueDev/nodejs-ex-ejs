@@ -8,9 +8,8 @@ exports.getHome = (req, res, next) => {
 };
 
 exports.postUser = (req, res, next) => {
-  // users.push({ name: req.body.name });
-  const user = new User(req.body.name);
-  user.save();
-  console.log("adduser.js", user);
+  const usr = new User(req.body.name);
+  usr.save();
+  console.log("adduser.js", usr);
   res.redirect("/users");
 };

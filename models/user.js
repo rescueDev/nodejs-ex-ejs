@@ -1,19 +1,37 @@
-const users = [];
+const fs = require("fs");
+const path = require("path");
 
-//create new class User
+const p = path.join(
+  path.dirname(process.mainModule.filename),
+  "data",
+  "users.json"
+);
+
+const getUsersFromFile = (cb) => {
+  fs.readFile(p, (err, fileContent) => {
+    if (err) {
+      cb([]);
+    } else {
+      cb(JSON.parse(fileContent));
+    }
+  });
+};
 
 module.exports = class User {
-  constructor(n) {
-    this.name = n;
+  constructor(name) {
+    this.name = name;
   }
 
-  //save method
   save() {
-    users.push(this);
+    getUsersFromFile((users) => {
+      users.push(this);
+      fs.writeFile(p, JSON.stringify(users), (err) => {
+        console.log("error", err);
+      });
+    });
   }
 
-  //fetchAll users method
-  static fetchAll() {
-    return users;
+  static fetchAll(cb) {
+    getUsersFromFile(cb);
   }
 };
