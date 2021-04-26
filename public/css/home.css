@@ -23,6 +23,16 @@
   width: 100%;
 }
 
+.form-group {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  text-align: center;
+}
+
 form input {
   height: 30px;
 }

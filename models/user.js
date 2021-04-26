@@ -18,8 +18,11 @@ const getUsersFromFile = (cb) => {
 };
 
 module.exports = class User {
-  constructor(name) {
+  constructor(name, lastname, age, city) {
     this.name = name;
+    this.lastname = lastname;
+    this.age = age;
+    this.city = city;
   }
 
   save() {
