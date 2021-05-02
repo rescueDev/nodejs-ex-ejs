@@ -14,8 +14,10 @@
     "ejs": "*",
     "express": "*",
     "express-handlebars": "*",
+    "mysql2": "*",
     "nodemon": "*",
     "path": "*",
-    "pug": "*"
+    "pug": "*",
+    "sequelize": "*"
   }
 }

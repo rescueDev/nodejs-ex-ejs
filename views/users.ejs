@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/users.css" />
+<%- include('includes/head.ejs') %>
 
-    <title><%= titlePage%></title>
-  </head>
-  <body>
     <%- include('includes/header.ejs')%>
 
-    <div class="container-users">
+    <div class="container">
       <% if(usrs.length > 0) { %>
-      <div class="users-list">
-        <h2>Users</h2>
-        <% for (let user of usrs ) { %>
-        <div class="user-card">
-          <h3><%= user.name %></h3>
-          <h3><%= user.lastname %></h3>
-          <h3><%= user.age %></h3>
-          <h3><%= user.city %></h3>
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="card-header">
+            <h2>Users</h2>
+          </div>
+          <div class="col-12 d-flex justify-content-between">
+
+            <% for (let user of usrs ) { %>
+            <div class="card col-4">
+              <div class="col-12">
+                <h3><%= user.name %></h3>
+                <h3><%= user.lastname %></h3>
+                <h3><%= user.age %></h3>
+                <h3><%= user.city %></h3>
+                <a class="btn btn-success" href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
+              </div>
+            </div>
+            <%}%>
+
+          </div>
         </div>
-        <%}%>
-      </ul>
+      </div>
       <% } else { %>
       <h1>No users yet, please add one</h1>
       <% }%>

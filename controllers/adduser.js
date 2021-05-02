@@ -12,8 +12,17 @@ exports.postUser = (req, res, next) => {
   const lastname = req.body.lastname;
   const age = req.body.age;
   const city = req.body.city;
-  const usr = new User(name, lastname, age, city);
-  usr.save();
-  console.log("adduser.js", usr);
+  User.create({
+    name: name,
+    lastname: lastname,
+    age: age,
+    city: city,
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   res.redirect("/users");
 };

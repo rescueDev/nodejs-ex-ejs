@@ -8,4 +8,6 @@ const usersList = require("../controllers/userlist");
 
 router.get("/users", usersList.fetchUsers);
 
+router.get("/users/:userId", usersList.getUser);
+
 module.exports = router;
