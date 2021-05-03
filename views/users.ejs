@@ -19,6 +19,11 @@
                 <h3><%= user.age %></h3>
                 <h3><%= user.city %></h3>
                 <a class="btn btn-success" href="/users/<%= user.id %>" class="btn btn-primary">Show</a>
+                <a  href="/users/edit/<%= user.id %>" class="btn btn-warning">Edit</a>
+                <form action="/users/delete" method="post">
+                  <input type="hidden" name="userId" value="<%= user.id %>">
+                  <button  type="submit" class="btn btn-danger">Delete</button>
+                </form>
               </div>
             </div>
             <%}%>
