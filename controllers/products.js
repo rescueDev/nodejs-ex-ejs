@@ -26,14 +26,13 @@ exports.addProduct = (req, res, next) => {
     category: category,
     userId: userId,
   })
-    .then((res) => {
-      console.log(res);
+    .then(() => {
       console.log("Product Added");
+      res.redirect("/products");
     })
     .catch((err) => {
       console.log(err);
     });
-  //   res.redirect("/products");
 };
 
 exports.fetchProducts = (req, res, next) => {
@@ -46,4 +45,19 @@ exports.fetchProducts = (req, res, next) => {
       });
     })
     .catch((err) => console.log(err));
+};
+
+exports.showProduct = (req, res, next) => {
+  const productId = req.params.productId;
+  Product.findByPk(productId)
+    .then((product) => {
+      res.render("product-show", {
+        product: product,
+        titlePage: product.name,
+        linkPath: "/product/" + product.id,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

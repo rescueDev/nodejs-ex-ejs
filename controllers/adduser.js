@@ -18,11 +18,11 @@ exports.postUser = (req, res, next) => {
     age: age,
     city: city,
   })
-    .then((res) => {
-      console.log(res);
+    .then((result) => {
+      console.log(result);
+      res.redirect("/users");
     })
     .catch((err) => {
       console.log(err);
     });
-  res.redirect("/users");
 };
