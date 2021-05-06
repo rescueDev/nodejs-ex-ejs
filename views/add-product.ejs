@@ -1,0 +1,39 @@
+<%- include('includes/head.ejs') %> <%- include('includes/header.ejs')%>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mx-auto form-container">
+      <form action="/add-product" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="age">Price</label>
+          <input type="number" id="price" name="price" />
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Category</label>
+          <input type="text" id="category" name="category" />
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">User</label>
+
+          <select class="form-control" name="userId" id="userId">
+            <% for (let user of users ) { %>
+
+            <option value="<%= user.id%>">
+              <%= user.name%> <%= user.lastname%>
+            </option>
+
+            <%}%>
+          </select>
+        </div>
+
+        <button class="btn btn-warning" type="submit">Add Product</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('includes/end.ejs') %>
