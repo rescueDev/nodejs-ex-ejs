@@ -1,6 +1,7 @@
-# Simple project using NodeJs, Express, EJS and routes
+# Simple project using NodeJs, Express, EJS, Sequelize
 
 ## Add user submitting a form in home page, render users list in /users page.
+## Add products associated to a user.
 
 Before running please install dependencies with: 
 
