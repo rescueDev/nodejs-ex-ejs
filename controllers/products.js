@@ -1,4 +1,5 @@
 //import Product model
+const Cart = require("../models/cart");
 const Product = require("../models/product");
 const User = require("../models/user");
 
@@ -51,10 +52,18 @@ exports.showProduct = (req, res, next) => {
   const productId = req.params.productId;
   Product.findByPk(productId)
     .then((product) => {
-      res.render("product-show", {
-        product: product,
-        titlePage: product.name,
-        linkPath: "/product/" + product.id,
+      return product;
+    })
+    .then((product) => {
+      //GET ASSOCIATED USER
+      product.getUser().then((user) => {
+        // console.log("user associated: ", user);
+        res.render("product-show", {
+          product: product,
+          user: user,
+          titlePage: product.name,
+          linkPath: "/product/" + product.id,
+        });
       });
     })
     .catch((err) => {
